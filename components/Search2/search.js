@@ -9,7 +9,7 @@ export default function Search() {
 
   const searchWord = (query) => {
 
-    const url = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${query}&types=geocode&language=fr&key=AIzaSyDbSUkccejPaUNn-GoAdqNkrKpAuQASvnY`
+    const url = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${query}&types=geocode&language=fr&key=MyapiKey`
     return fetch(url,{headers:{'Access-Control-Allow-Origin': '*','Content-type': 'application/json'}})
       .then((response) => response.json())
       .then((json) => {

@@ -57,7 +57,7 @@ export default function Search() {
     <>
       <Head>
         <style type="text/css">{dom.css()}</style>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbSUkccejPaUNn-GoAdqNkrKpAuQASvnY&libraries=places"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=MyapiKey&libraries=places"></script>
       </Head>
       <h1 className={styles.mainSentence}>בואו למצוא את זה שמושלם בשבילכם</h1>
       <div className={styles.mainButton}>
