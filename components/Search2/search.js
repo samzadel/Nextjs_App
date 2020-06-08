@@ -1,30 +1,40 @@
-import Link from 'next/link'
-import Head from 'next/head'
 import styles from './search.module.css'
 import React, { useState } from 'react';
-import PlacesAutocomplete from 'react-places-autocomplete';
+import _, { debounce } from 'lodash';
 
 
 export default function Search() {
 
-  const searchWord = (query) => {
+  const [state, setState] = useState([])
 
-    const url = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${query}&types=geocode&language=fr&key=MyapiKey`
-    return fetch(url,{headers:{'Access-Control-Allow-Origin': '*','Content-type': 'application/json'}})
-      .then((response) => response.json())
-      .then((json) => {
-        console.log(json)
-        return json;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+  const handleChange = debounce(async (value) => {
+    const url = `http://localhost:3100/`
+    if (value === '') {
+      setState([])
+      return
+    }
+    let response = await fetch(url, {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify({ value })
+    })
+    let test = await response.json()
+    setState(test)
+   }, 1000)
+
 
   return (
     <>
-      <div>
-        <input onChange={e => searchWord(e.target.value)} />
+      <div className={styles.suggestion_input}>
+      <h2>Search Places</h2>
+        <input placeholder='jerusalem' onChange={e => handleChange(e.target.value)} />
+        {
+          state.map((item,index)=>{
+          return <div className={styles.suggests} key={index}>{item}</div>
+          })
+        }
       </div>
     </>
   )
