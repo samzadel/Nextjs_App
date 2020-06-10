@@ -1,11 +1,39 @@
-.suggestion_input{
+/* .suggestion_input{
     display: flex;
     justify-content: center;
     margin-top: 40px;
     flex-direction: column;
     align-items: center;
 }
+*/
 
-/* .suggests{
-    text-align: left;
-} */
+.suggests{
+    border: 1px solid;
+    width: 452px;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.suggests:hover{
+    background-color: blanchedalmond;
+}
+
+.input_suggests{
+    width: 452px;
+    border-radius: 16px;
+}
+
+.input_suggests:focus{
+    outline: none;
+}
+
+.suggests_type{
+    margin-left: 20px;
+} 
+
+.suggestion_input{
+    margin-left:auto;
+    margin-right:auto;
+    width:50%;
+    margin-top: 40px;
+}

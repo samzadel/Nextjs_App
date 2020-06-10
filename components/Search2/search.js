@@ -7,7 +7,9 @@ export default function Search() {
 
   const [state, setState] = useState([])
 
-  const handleChange = debounce(async (value) => {
+  const [valueClick, setValueClick] = useState('')
+
+  const sendRequest = debounce(async (value) => {
     const url = `http://localhost:3100/`
     if (value === '') {
       setState([])
@@ -22,17 +24,27 @@ export default function Search() {
     })
     let test = await response.json()
     setState(test)
-   }, 1000)
+  },500)
 
+  const handleChange = (content)=>{
+    setValueClick(content)
+    sendRequest(content)
+  }
+
+
+  const getSuggest = (value) => {
+    setValueClick(value)
+  }
 
   return (
     <>
       <div className={styles.suggestion_input}>
-      <h2>Search Places</h2>
-        <input placeholder='jerusalem' onChange={e => handleChange(e.target.value)} />
+        <h2>Search Places</h2>
+        <input placeholder='חפשו איזור, שכונה או בי״ס' className={styles.input_suggests} onChange={e => handleChange(e.target.value)} value={valueClick} />
         {
-          state.map((item,index)=>{
-          return <div className={styles.suggests} key={index}>{item}</div>
+          state.map((item, index) => {
+            return <div className={styles.suggests} onClick={e => getSuggest(item.description)} key={index}>{item.description} <span className={styles.suggests_type}>{item.type}</span>
+            </div>
           })
         }
       </div>
