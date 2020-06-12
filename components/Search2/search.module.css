@@ -23,7 +23,7 @@
 }
 
 .input_suggests:focus{
-    outline: none;
+    outline: none; 
 }
 
 .suggests_type{
