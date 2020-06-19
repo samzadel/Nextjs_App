@@ -30,8 +30,10 @@ export default function Search() {
   }, [])
 
   const catchClick = (event) => {
-    if ((suggestions.current && !suggestions.current.contains(event.target)) || (histories.current && !histories.current.contains(event.target) && !catchInput.current)) {
-      // console.log(suggestions.current, histories.current)
+
+    console.log(suggestions.current, histories.current, catchInput.current)
+
+    if ((suggestions.current && !suggestions.current.contains(event.target)) || (histories.current && !histories.current.contains(event.target) && !catchInput.current.contains(event.target))) {
       setVisible(false)
       setHistoryVisible(false)
     }
@@ -51,14 +53,14 @@ export default function Search() {
     setState(test)
   }
 
-  const handleChange = async (content) => {
+  const handleChange = (content) => {
     setVisible(true)
     setValueClick(content)
     setHistoryVisible(false)
     sendRequest(content)
     if (content === '') {
-      await setState([])
-      await setHistoryVisible(true)
+      setState([])
+      setHistoryVisible(true)
     }
   }
 
