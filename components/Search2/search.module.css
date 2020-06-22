@@ -13,6 +13,14 @@
     justify-content: space-between;
 }
 
+.test{
+    background-color: red;
+}
+
+.countSearchArrow{
+    background-color: red;
+}
+
 .suggests:hover{
     background-color: blanchedalmond;
 }
