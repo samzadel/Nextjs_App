@@ -1,83 +1,105 @@
-.mainSentence{
-    font-size: 20px;
+.title{
     text-align: center;
-    margin-top: 60px;
+    margin-top: 40px;
 }
 
-.mainButton{
+.button_input{
     display: flex;
     justify-content: center;
 }
 
-.btnThree {
-    background-color: rgb(45, 145, 211); 
-	line-height: 50px;
-	text-align: center;
-	width: 250px;
+.button_input input{
+    visibility: hidden;
+    width: 0;
+}
+
+.button_input ul{
+    list-style: none;
+    width: 414px;
+    padding-left:0;
+    margin-bottom: 0;
+    margin-right: 43px;
+}
+
+.button_input li{
+    display: inline-block;
+    width: 207px;
+}
+
+.button_input label {
     cursor: pointer;
-    color: #FFF;
-	transition: all 0.5s;
-    position: relative;
-    border-radius: 16px;
-    margin-left: 10px;
-
+    width:207px;
+    text-align: center;
+    border-radius: 5px 5px 5px 5px;
+    margin-bottom: 0;
+    height: 35px;
+    padding-top: 4px;
+}
+.button_input li  input:checked + label {
+    background-color: red;
 }
 
-.btnThree::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 1;
-	background-color: rgba(255,255,255,0.1);
-	transition: all 0.3s;
-}
-.btnThree:hover::before {
-	opacity: 0 ;
-	transform: scale(0.5,0.5);
-}
-.btnThree::after {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 1;
-	opacity: 0;
-	transition: all 0.3s;
-	border: 1px solid rgba(255,255,255,0.5);
-	transform: scale(1.2,1.2);
-}
-.btnThree:hover::after {
-	opacity: 1;
-	transform: scale(1,1);
-}
 
-.searchBar{
-    display: flex;
-    justify-content: center;
-    
-}
-
-.inputSearchBar{
-    width:260px;
-    border-radius: 16px;
+.suggests{
+    padding: 5px;
     border: 1px solid;
-	width: 500px;
+    width: 452px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
 }
-.inputSearchBar:focus{
+
+.test{
+    background-color: red;
+}
+
+.countSearchArrow{
+    background-color: red;
+}
+
+.suggests:hover{
+    background-color: blanchedalmond;
+}
+
+.input_suggests{
+    width: 415px;
+    border-radius: 5px 0 0 5px;
+    border: 3px solid #00B4CC;
+}
+
+.input_suggests:focus{
     outline: none;
 }
 
-.icons{
-	background-color: #439ae2;
-	color: darkblue
+.suggests_type{
+    margin-left: 20px;
+} 
+
+.suggestion_input{
+    display: flex;
+    justify-content: center;
 }
 
-.noResult{
-	border: 1px solid;
-	border-radius: 16px;
+.iconSearch{
+    width: 40px;
+    height: 36px;
+    border: 1px solid #00B4CC;
+    background: #00B4CC;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+    outline: none;
+}
+
+.suggestions_div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.description{
+    margin-left:10px
 }
